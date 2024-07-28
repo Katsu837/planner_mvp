@@ -29,12 +29,12 @@ export default function App({ Component, pageProps }) {
     else if (mode !== themeMode) changeMode();
 
     const token = localStorage.getItem("jwtToken");
-    if (token === null && pathname !== "/login") push("/login");
-    else if (token !== null && pathname === "/login") push("/");
-    else setShowChild(true);
+    // if (token === null && pathname !== "/login") push("/login");
+    // else if (token !== null && pathname === "/login") push("/");
+    // else setShowChild(true);
   }, [pathname, push, mode]);
 
-  if (!showChild) return null;
+  // if (!showChild) return null;
 
 
   return (
