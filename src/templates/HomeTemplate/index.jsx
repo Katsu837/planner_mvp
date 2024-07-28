@@ -6,7 +6,7 @@ const HomeTemplate = () => {
         <Grid2 container spacing={4}>
             <Grid2 xs={3}>
                 {/*<LeftSideBar/>*/}
-            </Grid2>s
+            </Grid2>
             <Grid2 container xs={9}>
                 <Grid2 xs={8}>
                     {/*<NavCalendar/>*/}
