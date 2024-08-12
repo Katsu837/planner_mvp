@@ -1,8 +1,7 @@
 import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { theme as myTheme } from "../utils/theme"
-
+import { theme as myTheme } from "../utils/theme";
 
 export default function App({ Component, pageProps }) {
   const [mode, setMode] = useState("light");
@@ -18,8 +17,8 @@ export default function App({ Component, pageProps }) {
     const storageTheme = localStorage.getItem("themeMode");
     changeMode();
     localStorage.setItem(
-        "themeMode",
-        storageTheme === "light" ? "dark" : "light",
+      "themeMode",
+      storageTheme === "light" ? "dark" : "light"
     );
   };
 
@@ -29,20 +28,29 @@ export default function App({ Component, pageProps }) {
     else if (mode !== themeMode) changeMode();
 
     const token = localStorage.getItem("jwtToken");
-    // if (token === null && pathname !== "/login") push("/login");
-    // else if (token !== null && pathname === "/login") push("/");
-    // else setShowChild(true);
+    if (
+      token === null &&
+      pathname !== "/authorization/login" &&
+      pathname !== "/authorization/registration"
+    )
+      push("/authorization/login");
+    else if (
+      token !== null &&
+      (pathname === "/authorization/login" ||
+        pathname === "/authorization/registration")
+    )
+      push("/");
+    else setShowChild(true);
   }, [pathname, push, mode]);
 
-  // if (!showChild) return null;
-
+  if (!showChild) return null;
 
   return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Box>
-          <Component {...pageProps} />
-        </Box>
-      </ThemeProvider>
-  )
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ margin: "20px" }}>
+        <Component {...pageProps} />
+      </Box>
+    </ThemeProvider>
+  );
 }

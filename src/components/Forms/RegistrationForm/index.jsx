@@ -1,18 +1,17 @@
 import Input from "@/components/Input";
-import { Box, Button, Grid, Paper, Typography } from "@mui/material";
+import { Button, Grid, Paper, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import { useRouter } from "next/router";
+import React from "react";
 
-const LoginForm = () => {
-  const { push } = useRouter();
+export const RegistrationForm = () => {
   const submitHandler = () => {
     localStorage.setItem("jwtToken", "fhjdsgfsgfhsghfsgfjs");
-    push("/");
   };
   return (
     <>
       <Formik
         initialValues={{
+          name: "",
           email: "",
           password: "",
         }}
@@ -29,8 +28,9 @@ const LoginForm = () => {
                     alignItems: "center",
                   }}
                 >
-                  <Typography>L O G I N</Typography>
+                  <Typography>R E G I S T R A T I O N</Typography>
                 </Grid>
+
                 <Grid
                   item
                   sx={{
@@ -41,6 +41,15 @@ const LoginForm = () => {
                     padding: "5px",
                   }}
                 >
+                  <Field
+                    name="name"
+                    label="Name"
+                    component={Input}
+                    errors={errors}
+                    touched={touched}
+                    type="text"
+                  />
+
                   <Field
                     name="email"
                     label="Email"
@@ -66,7 +75,7 @@ const LoginForm = () => {
                     alignItems: "center",
                   }}
                 >
-                  <Button type="submit">Войти</Button>
+                  <Button>Войти</Button>
                 </Grid>
               </Grid>
             </Paper>
@@ -76,5 +85,3 @@ const LoginForm = () => {
     </>
   );
 };
-
-export default LoginForm;

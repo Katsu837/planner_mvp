@@ -1,25 +1,25 @@
-import React from 'react';
-import Grid2 from "@mui/material/Unstable_Grid2";
+import React from "react";
+import LeftSideBar from "@/components/LeftSideBar";
+import NavigationCalendar from "@/components/NavigationCalendar";
+import { Grid } from "@mui/material";
 
 const HomeTemplate = () => {
-    return (
-        <Grid2 container spacing={4}>
-            <Grid2 xs={3}>
-                {/*<LeftSideBar/>*/}
-            </Grid2>
-            <Grid2 container xs={9}>
-                <Grid2 xs={8}>
-                    {/*<NavCalendar/>*/}
-                </Grid2>
-                <Grid2 xs={4}>
-                    {/*<SearchAndProfileBar/>*/}
-                </Grid2>
-                <Grid2 xs={12}>
-                    {/*<MainCalendar/>*/}
-                </Grid2>
-            </Grid2>
-        </Grid2>
-    );
+  //   const { data, isLoading, error } = useUser();
+
+  return (
+    <Grid container spacing={4} columns={24}>
+      <Grid xs={5}>
+        <LeftSideBar />
+      </Grid>
+      <Grid container xs={19}>
+        <Grid xs={8}>
+          <NavigationCalendar />
+        </Grid>
+        <Grid xs={4}>{/*<SearchAndProfileBar/>*/}</Grid>
+        <Grid xs={12}>{/*<MainCalendar/>*/}</Grid>
+      </Grid>
+    </Grid>
+  );
 };
 
 export default HomeTemplate;

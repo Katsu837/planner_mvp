@@ -1,10 +1,11 @@
 import React, { useLayoutEffect, useState } from "react";
 import { Grid, Link, Typography } from "@mui/material";
 import LoginForm from "@/components/Forms/LoginForm";
+import { RegistrationForm } from "@/components/Forms/RegistrationForm";
 
-const LoginTemplate = () => {
-  const textUnderForm = "Еще нет аккаунта?";
-  const regHref = "/authorization/registration";
+const RegistrationTemplate = () => {
+  const textUnderForm = "Уже есть аккаунт?";
+  const loginHref = "/authorization/login";
   const sx = {
     flexDirection: "column",
     alignItems: "center",
@@ -20,7 +21,7 @@ const LoginTemplate = () => {
           <Typography> P L A N N E R </Typography>
         </Grid>
         <Grid container sx={{ ...sx, rowGap: "15px" }}>
-          <LoginForm />
+          <RegistrationForm />
           <Grid
             item
             sx={{
@@ -31,18 +32,16 @@ const LoginTemplate = () => {
             }}
           >
             <Typography>{textUnderForm}</Typography>
-            <Link href={regHref}>Зарегистрироваться</Link>
+            <Link href={loginHref}>Войти</Link>
           </Grid>
         </Grid>
         <Grid item>
-          <Typography>
-            <Link>Политика конфидециальности</Link> и{" "}
-            <Link>Пользовательское соглашение</Link>
-          </Typography>
+          <Typography>Узнать больше</Typography>
         </Grid>
       </Grid>
+      <Grid item sx={sx}></Grid>
     </Grid>
   );
 };
 
-export default LoginTemplate;
+export default RegistrationTemplate;
