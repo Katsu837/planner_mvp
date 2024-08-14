@@ -12,4 +12,4 @@ export const ENG_MONTH = [
   "November",
   "December",
 ];
-export const ENG_DAY_OF_WEEK = ["Mo", "Tu", "We", "Th", "Fr", "St", "Su"];
+export const ENG_WEEKDAY = ["Su", "Mo", "Tu", "We", "Th", "Fr", "St"];

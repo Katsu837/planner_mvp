@@ -2,6 +2,8 @@ import { Box, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { theme as myTheme } from "../utils/theme";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
 
 export default function App({ Component, pageProps }) {
   const [mode, setMode] = useState("light");
@@ -46,11 +48,13 @@ export default function App({ Component, pageProps }) {
   if (!showChild) return null;
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box sx={{ margin: "20px" }}>
-        <Component {...pageProps} />
-      </Box>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box sx={{ margin: "20px" }}>
+          <Component {...pageProps} />
+        </Box>
+      </ThemeProvider>
+    </Provider>
   );
 }

@@ -1,20 +1,23 @@
-import { Grid, Typography } from "@mui/material/index";
-import {
-  useDispatch,
-  useSelector,
-} from "../../../../node_modules/react-redux/dist/react-redux";
+import { Grid, Typography } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
 
-const MonthAndYear = () => {
-  const { currentMonth, currentYear } = useSelector((state) => state.date);
+const MonthAndYear = ({ showYear }) => {
+  const { currentMonth, currentYear, monthNames } = useSelector(
+    (state) => state.date
+  );
   const dispatch = useDispatch();
 
   return (
     <Grid
       item
-      sx={{ display: "flex", flexDirection: "row", columnGap: "20px" }}
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        columnGap: "10px",
+      }}
     >
-      <Typography>{currentMonth}</Typography>
-      <Typography>{currentYear}</Typography>
+      <Typography fontSize={16}>{monthNames[currentMonth]}</Typography>
+      {showYear ? <Typography>{currentYear}</Typography> : <></>}
     </Grid>
   );
 };

@@ -1,16 +1,16 @@
-import { ENG_DAY_OF_WEEK, ENG_MONTH } from "@/utils/language";
+import { ENG_WEEKDAY, ENG_MONTH } from "@/utils/language";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  date: new Date().getDate(),
+  currentDate: new Date().getDate(),
   currentMonth: new Date().getMonth(),
   currentYear: new Date().getFullYear(),
-  day: new Date().getDay(),
-  countDayOfMonth:
-    33 -
-    new Date(new Date().getFullYear(), new Date().getMonth(), 33).getDate(),
+  currentWeekday: new Date().getDay(),
+  selectDate: new Date().getDate(),
+  selectMonth: new Date().getMonth(),
+  selectYear: new Date().getFullYear(),
   monthNames: ENG_MONTH,
-  dayOfWeek: ENG_DAY_OF_WEEK,
+  weekdays: ENG_WEEKDAY,
 };
 
 const dateSlice = createSlice({
@@ -18,7 +18,13 @@ const dateSlice = createSlice({
   initialState,
   reducers: {
     setYear: (state, { payload }) => {
-      if (payload !== state.currentYear) state.currentYear = payload;
+      if (payload !== state.selectYear) state.currentYear = payload;
+    },
+    setMonth: (state, { payload }) => {
+      if (payload !== state.selectMonth) {
+      }
     },
   },
 });
+
+export const { actions, reducer } = dateSlice;

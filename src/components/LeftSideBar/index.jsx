@@ -20,7 +20,7 @@ const LeftSideBar = () => {
         height: "calc(100vh - 40px)",
       }}
     >
-      <Paper sx={{ padding: "10px", paddingBottom: "0" }}>
+      <Paper sx={{ padding: "20px", paddingBottom: "5px" }}>
         <Grid
           container
           sx={{
@@ -39,7 +39,7 @@ const LeftSideBar = () => {
                 Список уведомлений
               </Grid>
 
-              <Grid item sx={{ height: "calc(55vh - 20px)" }}>
+              <Grid item sx={{ height: "calc(55vh - 35px)" }}>
                 Список календарей/параметры события
               </Grid>
             </>
